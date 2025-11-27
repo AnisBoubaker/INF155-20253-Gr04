@@ -3,30 +3,28 @@
 #include <string.h>
 
 #include "mod_personne.h"
+#include "mod_animal.h"
 
-typedef struct date{
-    int jour;
-    int mois;
-    int annee;
-} t_date;
-
-typedef struct animal{
-    char* nom;
-    char espece[100];
-    char race[100];
-    t_date date_naiss;
-    t_personne* proprietaire;
-} t_animal;
 
 int main() {
 
-    t_personne* p1;
+    t_personne* romy;
+    t_personne* jon;
 
-    p1 = init_personne("Boulanger", "Romy", "514-786-4523");
+    t_animal* a1;
+    t_animal* a2;
+    t_animal* a3;
 
-    afficher_personne(p1);
+    romy = init_personne("Boulanger", "Romy", "514-786-4523");
+    jon = init_personne("Snow", "Jon", "514-898-5623");
 
-    free_personne(p1);
+    a1 = init_animal("Choupi", "Chien", "Golden", 2021,1,20,romy);
+    a2 = init_animal("Ghost", "Loup", "Direwolf", 1978,10,21, jon);
+    a3 = init_animal("Toutou", "Chat", "Persan", 2023, 6,10, romy);
+
+    afficher_animal(a1);
+    afficher_animal(a2);
+    afficher_animal(a3);
 
     return 0;
 }
