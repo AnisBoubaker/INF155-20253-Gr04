@@ -4,6 +4,7 @@
 
 #include "mod_personne.h"
 #include "mod_animal.h"
+#include "mod_garderie.h"
 
 
 int main() {
@@ -15,6 +16,8 @@ int main() {
     t_animal* a2;
     t_animal* a3;
 
+    t_garderie* ma_garderie;
+
     romy = init_personne("Boulanger", "Romy", "514-786-4523");
     jon = init_personne("Snow", "Jon", "514-898-5623");
 
@@ -22,9 +25,34 @@ int main() {
     a2 = init_animal("Ghost", "Loup", "Direwolf", 1978,10,21, jon);
     a3 = init_animal("Toutou", "Chat", "Persan", 2023, 6,10, romy);
 
-    afficher_animal(a1);
-    afficher_animal(a2);
-    afficher_animal(a3);
+    ma_garderie = init_garderie();
+
+    garderie_ajouter_animal(ma_garderie, a1);
+    garderie_ajouter_animal(ma_garderie, a2);
+    garderie_ajouter_animal(ma_garderie, a3);
+
+    afficher_garderie(ma_garderie);
+
+//    printf("\n******************\n APRES SUPPRESSION \n******************\n");
+//
+//    garderie_retirer_animal(ma_garderie, ma_garderie->nb_animaux-1);
+//
+//    afficher_garderie(ma_garderie);
+
+    t_animal* a4 = init_animal("Toutou", "Chat", "Persan", 2023, 6,10, romy);
+
+//    int position;
+//
+//
+//
+//    position = garderie_chercher_animal(ma_garderie, a4);
+//    printf("L'animal se trouve a la position: %d\n", position);
+
+    printf("\n******************\n APRES SUPPRESSION \n******************\n");
+
+    garderie_retirer_animal_ref(ma_garderie, a4);
+    afficher_garderie(ma_garderie);
+
 
     return 0;
 }
