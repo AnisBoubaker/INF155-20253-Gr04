@@ -53,6 +53,27 @@ int main() {
     garderie_retirer_animal_ref(ma_garderie, a4);
     afficher_garderie(ma_garderie);
 
+    //Sauvegarde
+    if( garderie_sauvegarder(ma_garderie, "../ma_garderie.txt") ){
+        printf("Sauvegarde réussie.\n");
+    } else {
+        printf("Erreur lors de la sauvegarde de la garderie.\n");
+    }
+
+    //Chargement et affichage de la garderie
+    t_garderie* garderie_chargee = NULL;
+
+    garderie_chargee = garderie_charger("../ma_garderie.txt");
+    if(garderie_chargee==NULL){
+        printf("Erreur de chargement de la garderie.\n");
+        exit(1);
+    }
+
+    printf("======== AFFICHAGE DE LA GARDERIE CHARGEE ==========\n");
+    afficher_garderie(garderie_chargee);
+
+    free_garderie(ma_garderie);
+    free_garderie(garderie_chargee);
 
     return 0;
 }

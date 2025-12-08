@@ -31,4 +31,7 @@ void free_animal(t_animal* a);
 
 void afficher_animal(const t_animal* a);
 
+int animal_sauvegarder(t_animal* a, FILE* fichier);
+t_animal* animal_charger(FILE* fichier);
+
 #endif //GARDERIEANIMAUX_MOD_ANIMAL_H

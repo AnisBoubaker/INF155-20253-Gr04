@@ -23,4 +23,7 @@ void free_personne(t_personne* p);
 
 void afficher_personne(const t_personne* p);
 
+int personne_sauvegarder(const t_personne* p, FILE* fichier);
+t_personne* personne_charger(FILE* fichier);
+
 #endif //GARDERIEANIMAUX_MOD_PERSONNE_H

@@ -17,6 +17,7 @@ typedef struct garderie{
 
 
 t_garderie* init_garderie(void);
+void free_garderie(t_garderie* g);
 
 void afficher_garderie(t_garderie* g);
 
@@ -28,5 +29,7 @@ t_animal* garderie_retirer_animal(t_garderie* g, int indice);
 
 t_animal* garderie_retirer_animal_ref(t_garderie* g, const t_animal* a);
 
+int garderie_sauvegarder(const t_garderie* g, const char* nom_fichier);
+t_garderie* garderie_charger(const char* nom_fichier);
 
 #endif //GARDERIEANIMAUX_MOD_GARDERIE_H
